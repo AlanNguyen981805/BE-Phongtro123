@@ -11,6 +11,6 @@ export const getAreasService = () =>
         response 
       })
     } catch (error) {
-      reject();
+      reject(error);
     }
   });

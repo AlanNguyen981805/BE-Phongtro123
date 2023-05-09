@@ -10,6 +10,6 @@ export const getPriceSerivice = () =>
         response 
       })
     } catch (error) {
-      reject();
+      reject(error);
     }
   });
