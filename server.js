@@ -7,7 +7,7 @@ import connectDb from "./src/config/connectDatabase";
 const app = express();
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000, https://fe-phongtro123.vercel.app',
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
