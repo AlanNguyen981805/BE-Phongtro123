@@ -14,16 +14,10 @@
     }
   },
   "development": {
-    "username": "db_phongtro123_jrcv_user",
-    "password": "RtzIjZ6sMaLb4I9bhtGbAKhAMeEWR9BW",
-    "database": "db_phongtro123_jrcv",
-    "host": "dpg-chd2qim7avjcvo54d0u0-a.singapore-postgres.render.com",
-    "dialect": "postgres",
-    "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
+    "username": "root",
+    "password": null,
+    "database": "phontro123",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
 }
