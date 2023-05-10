@@ -20,7 +20,7 @@ export const getPostsService = () =>
             attributes: ["images"],
           },
           {
-            model: db.Attribute,
+            model: db.Attributes,
             as: "attr",
             attributes: ["price", "acreage", "published", "hashtag"],
           },
@@ -85,7 +85,7 @@ export const getPostsLimitService = (offset, query) =>
             attributes: ["images"],
           },
           {
-            model: db.Attribute,
+            model: db.Attributes,
             as: "attr",
             attributes: ["price", "acreage", "published", "hashtag"],
           },
@@ -124,7 +124,7 @@ export const getNewPostService = () =>
             attributes: ["images"],
           },
           {
-            model: db.Attribute,
+            model: db.Attributes,
             as: "attr",
             attributes: ["price", "acreage", "published", "hashtag"],
           },
@@ -157,7 +157,7 @@ export const getDetailPostService = (id) =>
             attributes: ["images"],
           },
           {
-            model: db.Attribute,
+            model: db.Attributes,
             as: "attr",
             attributes: ["price", "acreage", "published", "hashtag"],
           },
@@ -237,13 +237,15 @@ export const createPostService = (req) =>
         rentalObj,
       };
       const newPost = await db.Posts.create(dataFormPost);
-      resolve({
-        err: newPost ? 0 : 1,
-        msg: newPost ? "OK" : "Failed to create post",
-        newPost,
-      });
+      console.log({ newPost });
+      if (newPost) {
+        resolve({
+          err: newPost ? 0 : 1,
+          msg: newPost ? "OK" : "Failed to create post",
+        });
+      }
     } catch (error) {
-      console.log({ error });
+      console.log(">>>>>>>", { error });
       reject(error);
     }
   });
@@ -357,7 +359,7 @@ export const getPostsAdminService = (offset, id, query) =>
             attributes: ["images"],
           },
           {
-            model: db.Attribute,
+            model: db.Attributes,
             as: "attr",
             attributes: ["price", "acreage", "published", "hashtag"],
           },

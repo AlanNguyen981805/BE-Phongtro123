@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       images: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "id",
         as: "image",
       });
-      Post.belongsTo(models.Attribute, {
+      Post.belongsTo(models.Attributes, {
         foreignKey: "attributesId",
         targetKey: "id",
         as: "attr",
