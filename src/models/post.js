@@ -52,7 +52,7 @@ module.exports = (sequelize, DataTypes) => {
       city: {
         type: DataTypes.TEXT,
         get: function () {
-          return JSON.parse(this.getDataValue("city"));
+          return this.getDataValue("city") && JSON.parse(this.getDataValue("city"));
         },
         set: function (value) {
           return this.setDataValue("city", JSON.stringify(value));
@@ -61,7 +61,7 @@ module.exports = (sequelize, DataTypes) => {
       district: {
         type: DataTypes.TEXT,
         get: function () {
-          return JSON.parse(this.getDataValue("district"));
+          return this.getDataValue("district") && JSON.parse(this.getDataValue("district"));
         },
         set: function (value) {
           return this.setDataValue("district", JSON.stringify(value));
@@ -70,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
       ward: {
         type: DataTypes.TEXT,
         get: function () {
-          return JSON.parse(this.getDataValue("ward"));
+          return this.getDataValue("ward") && JSON.parse(this.getDataValue("ward"));
         },
         set: function (value) {
           return this.setDataValue("ward", JSON.stringify(value));

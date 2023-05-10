@@ -135,6 +135,10 @@ export const getNewPostService = () =>
 export const getDetailPostService = (id) =>
   new Promise(async (resolve, reject) => {
     try {
+      await db.Posts.update(
+        { view: db.Sequelize.literal("view + 1") },
+        { where: { id } }
+      );
       const response = await db.Posts.findOne({
         where: {
           id,
@@ -161,6 +165,7 @@ export const getDetailPostService = (id) =>
       });
       resolve(response);
     } catch (error) {
+      console.log(error)
       reject(error);
     }
   });
