@@ -45,18 +45,8 @@ export const getPostsLimitService = (offset, query) =>
   new Promise(async (resolve, reject) => {
     try {
       let where = {};
-      addConditionOr(
-        where,
-        "price",
-        parseFloat(query.minPrice),
-        parseFloat(query.maxPrice)
-      );
-      addConditionOr(
-        where,
-        "acreage",
-        parseFloat(query.minAcreage),
-        parseFloat(query.maxAcreage)
-      );
+      addConditionOr(where, "price", query.minPrice, query.maxPrice);
+      addConditionOr(where, "acreage", query.minAcreage, query.maxAcreage);
       addCondition(where, "categoryCode", query.categoryCode);
       addConditionJson(where, "city", "id", query.area);
       addConditionJson(where, "district", "id", query.district);
@@ -70,6 +60,7 @@ export const getPostsLimitService = (offset, query) =>
         order = ["createdAt", "DESC"];
       }
 
+      console.log(where);
       const response = await db.Posts.findAndCountAll({
         order: [order],
         where,
